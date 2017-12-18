@@ -1,4 +1,4 @@
-package com.net.okhttp.net;
+package com.feidu.duoduodou.http.net;
 
 /**
  * Created by wangjian on 2017/12/8.
@@ -88,11 +88,11 @@ public interface RetrofitService {
     /**
      * 搜索
      *
-     * @param pid
+     * @param position
      * @return
      */
-    @GET("index.php?c=article&a=type1")
-    Observable<JsonObject> getJsonSearch( @Query("pid") String pid);
+    @GET("GetCarousel?")
+    Observable<JsonObject> getLunBo(@Query("position") String position);
 
     @GET("search.php")
     Observable<JsonObject> getDingdan(@Query("key") String key, @Query("page") int page);

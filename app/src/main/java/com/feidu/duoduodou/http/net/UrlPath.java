@@ -1,15 +1,15 @@
-package com.net.okhttp.net;
+package com.feidu.duoduodou.http.net;
 
 /**
  * Created by wangjian on 2017/12/8.
  */
+
 /**
  * 功能：接口集合
  * 伪码：
  * 待完成：
  */
 public class UrlPath {
-
 
 
     /**
@@ -19,9 +19,10 @@ public class UrlPath {
 
     /**
      * 网2
-     * http://192.168.1.121:8080/efithealth/
+     * http://cs.duoduo8.cn/api/DuoduoDemo/
      */
-    public static final String URL_BOSS= "http://xyh.duoduo66.com/";
+    public static final String UrlIMG = "http://cs.duoduo8.cn/";
+    public static final String URL_BOSS = UrlIMG + "api/DuoduoDemo/";
 
 
 }

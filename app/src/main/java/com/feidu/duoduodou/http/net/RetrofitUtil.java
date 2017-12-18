@@ -1,4 +1,4 @@
-package com.net.okhttp.net;
+package com.feidu.duoduodou.http.net;
 
 /**
  * Created by wangjian on 2017/12/8.

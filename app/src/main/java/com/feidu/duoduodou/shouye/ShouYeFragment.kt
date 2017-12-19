@@ -15,20 +15,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import cn.bingoogolapple.bgabanner.BGABanner
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.feidu.duoduodou.App
-import com.feidu.duoduodou.BannerBean
+import com.feidu.duoduodou.bean.BannerBean
 import com.feidu.duoduodou.R
-import com.feidu.duoduodou.bottomnavigat.KEY_MESSAGE
-import com.feidu.duoduodou.bottomnavigat.TextFragment
 import com.feidu.duoduodou.http.net.UrlPath.UrlIMG
 import com.google.gson.Gson
 import com.google.gson.JsonObject
-import kotlinx.android.synthetic.main.fragment_shouye.*
 import rx.Subscriber
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
@@ -60,7 +56,7 @@ class ShouYeFragment : Fragment(), BGABanner.Delegate<ImageView, String>, BGABan
     override fun fillBannerItem(banner: BGABanner?, itemView: ImageView?, model: String?, position: Int) {
         Glide.with(itemView?.getContext())
                 .load(model)
-                .apply(RequestOptions().placeholder(R.drawable.holder).error(R.drawable.holder).dontAnimate().centerCrop())
+                .apply(RequestOptions().placeholder(R.drawable.personal_slider_place_holder).error(R.drawable.personal_slider_place_holder).dontAnimate().centerCrop())
                 .into(itemView)
     }
 
@@ -95,15 +91,17 @@ class ShouYeFragment : Fragment(), BGABanner.Delegate<ImageView, String>, BGABan
                 val bannerModel = gson.fromJson<BannerBean>(jsonObject, BannerBean::class.java!!)
                 mZoomBanner?.setAutoPlayAble(bannerModel.data.size > 1)
                 if (listImg.size>0){
-                    listImg.clear()
-                    listTip.clear()
+                   /* listImg.clear()
+                    listTip.clear()*/
+                }else{
+                    for (img in bannerModel.data){
+                        listImg.add(UrlIMG+img.imgUrl)
+                    }
+                    for (tip in bannerModel.data){
+                        listTip.add(tip.title)
+                    }
                 }
-                for (img in bannerModel.data){
-                    listImg.add(UrlIMG+img.imgUrl)
-                }
-                for (tip in bannerModel.data){
-                    listTip.add("")
-                }
+
 
                 mZoomBanner?.setAdapter(showYeFragment())
                 mZoomBanner?.setData(listImg, listTip)

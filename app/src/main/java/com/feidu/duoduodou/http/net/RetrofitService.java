@@ -91,11 +91,15 @@ public interface RetrofitService {
      * @param position
      * @return
      */
+    //首页轮播
     @GET("GetCarousel?")
     Observable<JsonObject> getLunBo(@Query("position") String position);
 
-    @GET("search.php")
-    Observable<JsonObject> getDingdan(@Query("key") String key, @Query("page") int page);
+
+    //兑换列表
+    @GET("GetExchangeProductClass?")
+    Observable<JsonObject> getDuihuanLiebia();
+
 
 
 }

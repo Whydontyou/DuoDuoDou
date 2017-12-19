@@ -1,4 +1,4 @@
-package com.feidu.duoduodou;
+package com.feidu.duoduodou.bean;
 
 import java.util.List;
 
